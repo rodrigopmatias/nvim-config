@@ -1,8 +1,44 @@
 -- You can also add or configure plugins by creating files in this `plugins/` folder
 -- Here are some examples:
+vim.o.shell = "/bin/zsh"
 
 ---@type LazySpec
 return {
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 1000,
+    opts = {
+      flavour = "macchiato",
+      -- flavour = "mocha",
+      -- flavour = "frappe",
+      -- flavour = "latte",
+      no_italic = true,
+      integrations = {
+        aerial = true,
+        alpha = true,
+        cmp = true,
+        dap = true,
+        dap_ui = true,
+        gitsigns = true,
+        illuminate = true,
+        indent_blankline = true,
+        markdown = true,
+        mason = true,
+        native_lsp = true,
+        neotree = true,
+        notify = true,
+        semantic_tokens = true,
+        symbols_outline = true,
+        telescope = true,
+        treesitter = true,
+        ts_rainbow = false,
+        ufo = true,
+        which_key = true,
+        window_picker = true,
+      },
+    },
+  },
   {
     "leoluz/nvim-dap-go",
     config = function()
