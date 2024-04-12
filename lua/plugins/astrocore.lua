@@ -30,6 +30,9 @@ return {
         spell = false, -- sets vim.opt.spell
         signcolumn = "auto", -- sets vim.opt.signcolumn to auto
         wrap = false, -- sets vim.opt.wrap
+
+        colorcolumn = "79,119",
+        shell = "/bin/zsh",
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)

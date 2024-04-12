@@ -1,9 +1,8 @@
 -- You can also add or configure plugins by creating files in this `plugins/` folder
 -- Here are some examples:
-vim.o.shell = "/bin/zsh"
-
 ---@type LazySpec
 return {
+  { "Mofiqul/dracula.nvim" },
   {
     "catppuccin/nvim",
     name = "catppuccin",
