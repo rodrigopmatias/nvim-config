@@ -31,8 +31,8 @@ return {
         signcolumn = "auto", -- sets vim.opt.signcolumn to auto
         wrap = false, -- sets vim.opt.wrap
 
-        shell = "/bin/zsh",
         colorcolumn = "79,119",
+        shell = "/bin/zsh",
       },
       g = { -- vim.g.<key>
       },
