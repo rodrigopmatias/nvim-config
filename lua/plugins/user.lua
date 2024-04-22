@@ -2,7 +2,6 @@
 -- Here are some examples:
 ---@type LazySpec
 return {
-  { "folke/zen-mode.nvim" },
   { "Mofiqul/dracula.nvim" },
   {
     "catppuccin/nvim",
