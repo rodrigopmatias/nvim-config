@@ -9,19 +9,19 @@ return {
         gopls = {
           settings = {
             gopls = {
-              -- analyses = {
-              --   ST1003 = true,
-              --   fieldalignment = false,
-              --   fillreturns = true,
-              --   nilness = true,
-              --   nonewvars = true,
-              --   shadow = true,
-              --   undeclaredname = true,
-              --   unreachable = true,
-              --   unusedparams = true,
-              --   unusedwrite = true,
-              --   useany = true,
-              -- },
+              analyses = {
+                ST1003 = true,
+                fieldalignment = false,
+                fillreturns = true,
+                nilness = true,
+                nonewvars = true,
+                shadow = true,
+                undeclaredname = true,
+                unreachable = true,
+                unusedparams = true,
+                unusedwrite = true,
+                useany = true,
+              },
               codelenses = {
                 gc_details = true, -- Show a code lens toggling the display of gc's choices.
                 generate = true, -- show the `go generate` lens.
@@ -72,7 +72,7 @@ return {
     opts = function(_, opts)
       opts.ensure_installed = require("astrocore").list_insert_unique(
         opts.ensure_installed,
-        { "gomodifytags", "gofumpt", "iferr", "impl", "goimports" }
+        { "gomodifytags", "gofumpt", "iferr", "impl", "goimports", "golines" }
       )
     end,
   },
