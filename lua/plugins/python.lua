@@ -67,7 +67,9 @@ return {
         },
       },
     },
-    opts = {},
+    opts = {
+      name = { ".venv", "venv" },
+    },
     cmd = { "VenvSelect", "VenvSelectCached" },
   },
   {
