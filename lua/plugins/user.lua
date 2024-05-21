@@ -1,8 +1,33 @@
 -- You can also add or configure plugins by creating files in this `plugins/` folder
 -- Here are some examples:
 ---@type LazySpec
+
 return {
-  { "Mofiqul/dracula.nvim" },
+  {
+    "loctvl842/monokai-pro.nvim",
+    name = "monokai",
+    config = function()
+      require("monokai-pro").setup {
+        -- filter = "ristretto",
+        filter = "pro",
+        -- filter = "octagon",
+        -- filter = "machine",
+        -- filter = "spectrum",
+        -- filter = "classic",
+        devicons = true,
+        styles = {
+          comment = { italic = false },
+          keyword = { italic = false }, -- any other keyword
+          type = { italic = false }, -- (preferred) int, long, char, etc
+          storageclass = { italic = false }, -- static, register, volatile, etc
+          structure = { italic = false }, -- struct, union, enum, etc
+          parameter = { italic = false }, -- parameter pass in function
+          annotation = { italic = false },
+          tag_attribute = { italic = false }, -- attribute of tag in reactjs
+        },
+      }
+    end,
+  },
   {
     "catppuccin/nvim",
     name = "catppuccin",

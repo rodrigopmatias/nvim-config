@@ -1,3 +1,13 @@
+vim.api.nvim_create_autocmd("VimEnter", {
+  desc = "Auto select virtualenv Nvim open",
+  pattern = "*",
+  callback = function()
+    local venv = vim.fn.findfile("pyproject.toml", vim.fn.getcwd() .. ";")
+    if venv ~= "" then require("venv-selector").retrieve_from_cache() end
+  end,
+  once = true,
+})
+
 return {
   {
     "AstroNvim/astrolsp",
@@ -62,12 +72,15 @@ return {
           mappings = {
             n = {
               ["<Leader>lv"] = { "<Cmd>VenvSelect<CR>", desc = "Select VirtualEnv" },
+              ["<Leader>lV"] = { "<Cmd>VenvSelectCached<CR>", desc = "Select last VirtualEnv" },
             },
           },
         },
       },
     },
-    opts = {},
+    opts = {
+      name = { "venv", ".venv", ".env" },
+    },
     cmd = { "VenvSelect", "VenvSelectCached" },
   },
   {
