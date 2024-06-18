@@ -1,14 +1,18 @@
-vim.api.nvim_create_autocmd("VimEnter", {
-  desc = "Auto select virtualenv Nvim open",
-  pattern = "*",
-  callback = function()
-    local venv = vim.fn.findfile("pyproject.toml", vim.fn.getcwd() .. ";")
-    if venv ~= "" then require("venv-selector").retrieve_from_cache() end
-  end,
-  once = true,
-})
-
 return {
+  load_launch_json = function()
+    if vim.fn.filereadable ".vscode/launch.json" == 1 then
+      local data = {}
+      for line in io.open(".vscode/launch.json", "r"):lines() do
+        if not vim.startswith(vim.trim(line), "//") then table.insert(data, line) end
+      end
+      local launch = vim.json.decode(table.concat(data, "\n"))
+      require("dap").configurations.python = launch["configurations"]
+
+      vim.notify("launch loaded with success!!!", vim.log.levels.INFO)
+    else
+      vim.notify("launch file not present", vim.log.levels.WARN)
+    end
+  end,
   {
     "AstroNvim/astrolsp",
     optional = true,
@@ -78,6 +82,8 @@ return {
         },
       },
     },
+    lazy = false,
+    branch = "regexp",
     opts = {
       name = { "venv", ".venv", ".env" },
     },
@@ -85,7 +91,22 @@ return {
   },
   {
     "mfussenegger/nvim-dap-python",
-    dependencies = "mfussenegger/nvim-dap",
+    dependencies = {
+      "mfussenegger/nvim-dap",
+      {
+        "AstroNvim/astrocore",
+        opts = {
+          mappings = {
+            n = {
+              ["<Leader>dj"] = {
+                "<Cmd>lua require('plugins/python').load_launch_json()<CR>",
+                desc = "Load launch JSON file",
+              },
+            },
+          },
+        },
+      },
+    },
     ft = "python", -- NOTE: ft: lazy-load on filetype
     config = function(_, opts)
       local path = require("mason-registry").get_package("debugpy"):get_install_path()
@@ -95,6 +116,7 @@ return {
         path = path .. "/venv/bin/python"
       end
       require("dap-python").setup(path, opts)
+      require("dap-python").test_runner = "pytest"
     end,
   },
   {

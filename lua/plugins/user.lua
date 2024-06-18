@@ -9,9 +9,9 @@ return {
     config = function()
       require("monokai-pro").setup {
         -- filter = "ristretto",
-        filter = "pro",
+        -- filter = "pro",
         -- filter = "octagon",
-        -- filter = "machine",
+        filter = "machine",
         -- filter = "spectrum",
         -- filter = "classic",
         devicons = true,
