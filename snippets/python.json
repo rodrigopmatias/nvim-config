@@ -1,0 +1,18 @@
+{
+  "async-main": {
+    "prefix": [
+      "a-main"
+    ],
+    "body": [
+      "import asyncio",
+      "",
+      "",
+      "async def main() -> None:",
+      "    ${0:pass}",
+      "",
+      "",
+      "if __name__ == \"__main__\":",
+      "    asyncio.run(main())"
+    ]
+  }
+}
