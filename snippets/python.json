@@ -1,4 +1,22 @@
 {
+  "fastapi-router": {
+    "prefix": [
+      "fast-routes"
+    ],
+    "body": [
+      "from fastapi import APIRouter, FastAPI",
+      "",
+      "",
+      "router = APIRouter(prefix=\"/v1/$1\", tags=[\"$1\"])",
+      "",
+      "",
+      "def init_app(app: FastAPI) -> None:",
+      "    app.include_router(router)",
+      "",
+      "",
+      "$0"
+    ]
+  },
   "async-main": {
     "prefix": [
       "a-main"

@@ -1,4 +1,5 @@
 return {
+  { "akinsho/toggleterm.nvim", config = function() require("toggleterm").setup { direction = "float" } end },
   {
     "L3MON4D3/LuaSnip",
     opts = function(plugin, opts)
@@ -29,7 +30,7 @@ return {
     "nvim-neo-tree/neo-tree.nvim",
     opts = function(_, opts)
       opts.window = vim.tbl_extend("force", opts.window, {
-        width = 45,
+        width = 35,
       })
     end,
   },

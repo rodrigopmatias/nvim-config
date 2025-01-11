@@ -9,6 +9,7 @@ return {
   { import = "astrocommunity.pack.docker" },
   { import = "astrocommunity.pack.python" },
   { import = "astrocommunity.pack.go" },
+  -- { import = "astrocommunity.pack.proto" },
   { import = "astrocommunity.pack.typescript" },
   { import = "astrocommunity.pack.yaml" },
   { import = "astrocommunity.pack.html-css" },
